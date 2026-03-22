@@ -18,7 +18,8 @@ const StudentForm = ({ student, onBack, onSaved }) => {
     date_of_birth: '',
     caste: '',
     sub_caste: '',
-    conduct: 'Good',
+    conduct: '',
+    issue_date: '',
   });
 
   useEffect(() => {
@@ -35,7 +36,8 @@ const StudentForm = ({ student, onBack, onSaved }) => {
         date_of_birth: student.date_of_birth ? student.date_of_birth.split('T')[0] : '',
         caste: student.caste,
         sub_caste: student.sub_caste,
-        conduct: student.conduct || 'Good',
+        conduct: student.conduct || '',
+        issue_date: student.issue_date ? student.issue_date.split('T')[0] : '',
       });
     }
   }, [student, isEditing]);
@@ -115,9 +117,15 @@ const StudentForm = ({ student, onBack, onSaved }) => {
               </div>
             </div>
 
-            <div className="sm:col-span-2">
-              <label className="block text-sm font-semibold text-gray-900 mb-2">Character and Conduct</label>
-              <input type="text" name="conduct" required className="block w-full rounded-xl border-gray-300 bg-gray-50 shadow-sm p-3.5 focus:ring-2 focus:ring-primary-500 focus:bg-white transition-all text-sm" value={formData.conduct} onChange={handleChange} placeholder="e.g. Good" />
+            <div className="sm:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-semibold text-gray-900 mb-2">Character and Conduct</label>
+                <input type="text" name="conduct" className="block w-full rounded-xl border-gray-300 bg-gray-50 shadow-sm p-3.5 focus:ring-2 focus:ring-primary-500 focus:bg-white transition-all text-sm" value={formData.conduct} onChange={handleChange} placeholder="e.g. Good" />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-gray-900 mb-2">Certificate Issue Date</label>
+                <input type="date" name="issue_date" className="block w-full rounded-xl border-gray-300 bg-gray-50 shadow-sm p-3.5 focus:ring-2 focus:ring-primary-500 focus:bg-white transition-all text-sm" value={formData.issue_date} onChange={handleChange} />
+              </div>
             </div>
 
             <div>
