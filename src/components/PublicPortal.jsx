@@ -3,7 +3,7 @@ import { Search, FileText, Download, Calendar, User, ArrowRight } from 'lucide-r
 import { format } from 'date-fns';
 import api from '../utils/api';
 
-const API_BASE = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+const API_BASE = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5001';
 
 const PublicPortal = () => {
   const [query, setQuery] = useState('');
